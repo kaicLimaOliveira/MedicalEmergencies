@@ -1,9 +1,29 @@
-import Vuex from "vuex"
+import Vuex, { createStore } from "vuex"
 
-const store = new Vuex.Store({
+interface State {
+    title: string;
+    teams: {
+        nurses: string;
+        rescuer: string;
+        doctor: string;
+        car: string;
+        telephone: string;
+        resuscitationKit: string;
+    };
+}
+
+const useStore = createStore<State>({
     state: {
-        title: "Emergencies medicas"
+        title: "Emergências Médicas",
+        teams: {
+            nurses: "Nome do enfermeiro",
+            rescuer: "Nome do socorrista",
+            doctor: "Nome do médico",
+            car: "Placa do carro",
+            telephone: "+55 11 00000-0000",
+            resuscitationKit: "Kit 0001"
+        }
     }
 })
 
-export default store
+export default useStore

@@ -1,19 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-import Index from '../components/Index.vue'
-import ListItems from '../components/ListItems.vue'
-
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        component: Index,
+        name: 'Home',
+        meta: {
+            title: 'Home'
+        },
+        component: () => import('../components/Index.vue'),
         children: [
             {
                 path: 'profissionais/:type',
                 name: 'professionals',
                 props: true,
                 components: {
-                    professionals: ListItems
+                    professionals: () => import('../components/ListItems.vue'),
+                },
+                meta: {
+                    title: 'Emergências Médicas - Profissionais'
                 }
             },
             {
@@ -21,7 +25,10 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'equipment',
                 props: true,
                 components: {
-                    equipment: ListItems
+                    equipment: () => import('../components/ListItems.vue'),
+                },
+                meta: {
+                    title: 'Emergências Médicas - Equipamentos'
                 }
             }
         ]
@@ -30,6 +37,10 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
     history: createWebHistory(),
     routes
+})
+
+router.afterEach((to, from) => {
+    document.title = to.meta.title
 })
 
 export default router

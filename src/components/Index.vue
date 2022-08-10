@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Emergencias Médicas</a>
+        <a class="navbar-brand" href="#">{{ store.state.title }}</a>
       </div>
     </nav>
 
@@ -37,6 +37,10 @@ import TeamConfiguration from "./TeamConfiguration.vue";
 import Equipment from "./Equipment.vue";
 import Teams from "./Teams.vue";
 import Professionals from "./Professionals.vue";
+
+import { useStore } from "vuex";
+const store = useStore()
+
 
 const props = defineProps({
   msg: String,
