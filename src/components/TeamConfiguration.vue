@@ -34,8 +34,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
+import { computed, reactive } from '@vue/reactivity';
 import { useStore } from 'vuex';
+
+const state = reactive({
+  title: ""
+})
 
 const store = useStore()
 const teams = computed(() => store.state.teams)

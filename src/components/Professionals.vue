@@ -8,27 +8,18 @@
         </h5>
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <RouterLink
-              class="nav-link"
-              :to="{ name: 'professionals', params: { type: 'nurses' } }"
-            >
-              Enfermeiros
+            <RouterLink class="nav-link" :to="{ name: 'professionals', params: { type: 'nurses' } }">
+              Enfermeiros ({{ store.getters.totalNurses }})
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink
-              class="nav-link"
-              :to="{ name: 'professionals', params: { type: 'rescuers' } }"
-            >
-              Socorristas
+            <RouterLink class="nav-link" :to="{ name: 'professionals', params: { type: 'rescuers' } }">
+              Socorristas ({{ store.getters.totalRescuers }})
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink
-              class="nav-link"
-              :to="{ name: 'professionals', params: { type: 'doctors' } }"
-            >
-              Médicos
+            <RouterLink class="nav-link" :to="{ name: 'professionals', params: { type: 'doctors' } }">
+              Médicos ({{ store.getters.totalDoctors }})
             </RouterLink>
           </li>
         </ul>
@@ -45,4 +36,6 @@
 </template>
 
 <script setup lang="ts">
+import { useStore } from 'vuex';
+const store = useStore()
 </script>

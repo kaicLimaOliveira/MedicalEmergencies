@@ -40,7 +40,7 @@ const router = createRouter({
 })
 
 router.afterEach((to, from) => {
-    document.title = to.meta.title
+    document.title = String(to.meta.title)
 })
 
 export default router
