@@ -39,10 +39,26 @@ import Teams from "./Teams.vue";
 import Professionals from "./Professionals.vue";
 
 import { useStore } from "vuex";
+import { onMounted } from "vue";
+
 const store = useStore()
+interface Routes {
+  [set: string]: string
+}
 
+onMounted(async () => {
+  const routes: Routes = {
+    setNurses: "nurses",
+    setRescuers: "rescuers",
+    setDoctors: "doctors",
+    setEquipments: "equipments"
+  }
 
-const props = defineProps({
-  msg: String,
-});
+  for (const key in routes) {
+    const response = await fetch(`http://localhost:4000/${routes[key]}`)
+    const data = await response.json()
+
+    store.commit(key, data)
+  }
+})
 </script>

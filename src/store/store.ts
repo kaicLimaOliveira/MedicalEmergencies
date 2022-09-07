@@ -4,7 +4,7 @@ import { State } from "../interfaces/Store"
 const useStore = createStore<State>({
     state: {
         title: "Emergências Médicas",
-        teams: {
+        team: {
             nurse: "",
             rescuer: "",
             doctor: "",
@@ -12,43 +12,14 @@ const useStore = createStore<State>({
             telephone: "",
             resuscitationKit: ""
         },
-        nurses: [
-            { id: 1, name: 'João', scale: '12x36' },
-            { id: 2, name: 'Maria', scale: '12x36' },
-            { id: 3, name: 'Ana', scale: '24x48' },
-            { id: 4, name: 'José', scale: '24x48' }
-        ],
-        rescuers: [
-            { id: 1, name: 'Marcos', shift: 'manhã' },
-            { id: 2, name: 'Felipe', shift: 'tarde' },
-            { id: 3, name: 'Cláudia', shift: 'tarde' },
-            { id: 4, name: 'Michele', shift: 'noite' }
-        ],
-        doctors: [
-            { id: 1, name: 'André', scale: '12x36' },
-            { id: 2, name: 'Roberta', scale: '12x36' },
-            { id: 3, name: 'Carlos', scale: '24x48' },
-            { id: 4, name: 'Juliana', scale: '24x48' }
-        ],
+        teams: [],
+        nurses: [],
+        rescuers: [],
+        doctors: [],
         equipment: {
-            cars: [
-                { id: 1, board: 'ABC-0000' },
-                { id: 2, board: 'BRA1A11' },
-                { id: 3, board: 'CBA-1111' },
-                { id: 4, board: 'ARB2B22' }
-            ],
-            telephone: [
-                { id: 1, phone: '+55 11 98888-8888' },
-                { id: 2, phone: '+55 11 97777-7777' },
-                { id: 3, phone: '+55 11 96666-6666' },
-                { id: 4, phone: '+55 11 95555-5555' }
-            ],
-            resuscitationKit: [
-                { id: 1, kit: 'K0001' },
-                { id: 2, kit: 'K0002' },
-                { id: 3, kit: 'K0003' },
-                { id: 4, kit: 'K0004' }
-            ]
+            cars: [],
+            telephone: [],
+            resuscitationKit: []
         }
     },
     getters: {
@@ -61,6 +32,40 @@ const useStore = createStore<State>({
         },
         totalRescuersPerShift: (state, getters) => (shift: string) => getters.rescuersPerShift(shift).length,
 
+    },
+    mutations: {
+        setItemTeam: (state, { type, data }) => {
+
+            if (type == 'nurses') state.team.nurse = data.name
+            if (type == 'rescuers') state.team.rescuer = data.name
+            if (type == 'doctors') state.team.doctor = data.name
+            if (type == 'cars') state.team.car = data.board
+            if (type == 'telephone') state.team.telephone = data.telephone
+            if (type == 'resuscitationKit') state.team.resuscitationKit = data.kit
+        },
+        setNurses: (state, payload) => {
+            state.nurses = payload
+        },
+        setRescuers: (state, payload) => {
+            state.rescuers = payload
+        },
+        setDoctors: (state, payload) => {
+            state.doctors = payload
+        },
+        setEquipments: (state, { cars, telephones, resuscitationKit }) => {
+            state.equipment.cars = cars
+            state.equipment.telephone = telephones
+            state.equipment.resuscitationKit = resuscitationKit
+        },
+        addTeamInTeams: (state, payload) => {
+            state.teams.push(payload)
+            state.team = {}
+        }
+    },
+    actions: {
+        addEquipment(context, { cars, telephones, resuscitationKit }) {
+
+        }
     }
 })
 

@@ -10,22 +10,22 @@
     </div>
     <div class="row">
       <div class="col-8">
-        <p>Enfermeiro: {{ teams.nurses }}</p>
-        <p>Socorrista: {{ teams.rescuer }}</p>
-        <p>Médico: {{ teams.doctor }}</p>
-        <p>Carro: {{ teams.car }}</p>
-        <p>Telefone: {{ teams.telephone }}</p>
-        <p>Kit de reanimação: {{ teams.resuscitationKit }}</p>
+        <p>Enfermeiro: {{ team.nurse }}</p>
+        <p>Socorrista: {{ team.rescuer }}</p>
+        <p>Médico: {{ team.doctor }}</p>
+        <p>Carro: {{ team.car }}</p>
+        <p>Telefone: {{ team.telephone }}</p>
+        <p>Kit de reanimação: {{ team.resuscitationKit }}</p>
       </div>
       <div class="col-4 text-center">
         <div class="row">
           <div class="col">
-            <img class="img-fluid" src="../assets/ambulancias/indefinida.png" />
+            <img class="img-fluid" :src="`../src/assets/ambulancias/${imageAmbulance}`" />
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
-            <button type="button" class="btn btn-primary">Montar equipe</button>
+            <button @click="equipMount" type="button" class="btn btn-primary">Montar equipe</button>
           </div>
         </div>
       </div>
@@ -34,13 +34,25 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from '@vue/reactivity';
+import { computed } from '@vue/reactivity';
 import { useStore } from 'vuex';
 
-const state = reactive({
-  title: ""
+const store = useStore()
+const team = computed(() => store.state.team)
+const imageAmbulance = computed((): string => {
+  if (team.value.resuscitationKit)
+    return 'uti.png'
+
+  if (team.value.car)
+    return 'simples.png'
+
+  return 'indefinida.png'
+
 })
 
-const store = useStore()
-const teams = computed(() => store.state.teams)
+function equipMount() {
+  let equip = Object.assign({}, store.state.team)
+
+  store.commit('addTeamInTeams', equip)
+}
 </script>

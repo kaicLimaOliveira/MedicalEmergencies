@@ -6,14 +6,15 @@ interface Generic {
 
 export interface State {
     title: string;
-    teams: {
-        nurse: string;
-        rescuer: string;
-        doctor: string;
-        car: string;
-        telephone: string;
-        resuscitationKit: string;
+    team: {
+        nurse?: string;
+        rescuer?: string;
+        doctor?: string;
+        car?: string;
+        telephone?: string;
+        resuscitationKit?: string;
     };
+    teams: string[]
     nurses: Array<Generic>
     rescuers: {
         id: number;

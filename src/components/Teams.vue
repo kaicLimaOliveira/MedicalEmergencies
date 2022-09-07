@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <ListItems type="mountedTeams" />
+        <ListTeams />
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { useStore } from 'vuex';
-import ListItems from "./ListItems.vue";
+import ListTeams from "../components/ListTeams.vue";
 
 const store = useStore()
 </script>

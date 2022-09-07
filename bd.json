@@ -1,0 +1,188 @@
+{
+    "nurses": [
+        {
+            "id": 1,
+            "name": "João",
+            "scale": "12x36"
+        },
+        {
+            "id": 2,
+            "name": "Maria",
+            "scale": "12x36"
+        },
+        {
+            "id": 3,
+            "name": "Ana",
+            "scale": "24x48"
+        },
+        {
+            "id": 4,
+            "name": "José",
+            "scale": "24x48"
+        },
+        {
+            "id": 5,
+            "name": "Felipe",
+            "scale": "12x36"
+        },
+        {
+            "id": 6,
+            "name": "Marcelo",
+            "scale": "24x48"
+        },
+        {
+            "id": 7,
+            "name": "Antônio",
+            "scale": "12x36"
+        }
+    ],
+    "rescuers": [
+        {
+            "id": 1,
+            "name": "Marcos",
+            "shift": "manhã"
+        },
+        {
+            "id": 2,
+            "name": "Felipe",
+            "shift": "tarde"
+        },
+        {
+            "id": 3,
+            "name": "Cláudia",
+            "shift": "tarde"
+        },
+        {
+            "id": 4,
+            "name": "Michele",
+            "shift": "noite"
+        },
+        {
+            "id": 5,
+            "name": "Pedro",
+            "shift": "manhã"
+        },
+        {
+            "id": 6,
+            "name": "Miguel",
+            "shift": "manhã"
+        },
+        {
+            "id": 7,
+            "name": "Karina",
+            "shift": "tarde"
+        }
+    ],
+    "doctors": [
+        {
+            "id": 1,
+            "name": "André",
+            "scale": "12x36"
+        },
+        {
+            "id": 2,
+            "name": "Roberta",
+            "scale": "12x36"
+        },
+        {
+            "id": 3,
+            "name": "Carlos",
+            "scale": "24x48"
+        },
+        {
+            "id": 4,
+            "name": "Juliana",
+            "scale": "24x48"
+        },
+        {
+            "id": 5,
+            "name": "Sérgio",
+            "scale": "12x36"
+        },
+        {
+            "id": 6,
+            "name": "Renata",
+            "scale": "12x36"
+        }
+    ],
+    "equipments": {
+        "cars": [
+            {
+                "id": 1,
+                "board": "ABC-0000"
+            },
+            {
+                "id": 2,
+                "board": "BRA1A11"
+            },
+            {
+                "id": 3,
+                "board": "CBA-1111"
+            },
+            {
+                "id": 4,
+                "board": "ARB2B22"
+            },
+            {
+                "id": 5,
+                "board": "ZZZ-9999"
+            },
+            {
+                "id": 6,
+                "board": "XYZ7A88"
+            }
+        ],
+        "telephones": [
+            {
+                "id": 1,
+                "telephone": "+55 11 98888-8888"
+            },
+            {
+                "id": 2,
+                "telephone": "+55 11 97777-7777"
+            },
+            {
+                "id": 3,
+                "telephone": "+55 11 96666-6666"
+            },
+            {
+                "id": 4,
+                "telephone": "+55 11 95555-5555"
+            },
+            {
+                "id": 3,
+                "telephone": "+55 11 92222-2222"
+            },
+            {
+                "id": 4,
+                "telephone": "+55 11 93333-3333"
+            }
+        ],
+        "resuscitationKit": [
+            {
+                "id": 1,
+                "kit": "K0001"
+            },
+            {
+                "id": 2,
+                "kit": "K0002"
+            },
+            {
+                "id": 3,
+                "kit": "K0003"
+            },
+            {
+                "id": 4,
+                "kit": "K0004"
+            },
+            {
+                "id": 5,
+                "kit": "K0005"
+            },
+            {
+                "id": 6,
+                "kit": "K0006"
+            }
+        ]
+    }
+}
